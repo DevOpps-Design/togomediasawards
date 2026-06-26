@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #734E0A;
+  --color-brand-accent: #F2AC29;
+  --color-brand-accent-dark: #D68F10;
+  --color-brand-subtle: #734E0A;
+  --color-brand-alert: #F20505;
+  --color-brand-highlight: #F2E205;
+
+  --color-bg-main: #FCFAF7;
+  --color-bg-alt: #F5F1EA;
+  --color-bg-card: #FFFFFF;
+  --color-bg-elevated: #FAF6F0;
+  --color-border-subtle: rgba(13, 13, 13, 0.08);
+
+  --color-text-main: #0D0D0D;
+  --color-text-muted: rgba(13, 13, 13, 0.65);
+  --color-text-dim: rgba(13, 13, 13, 0.35);
+
+  --font-sans: "Cursor Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "Poppins", sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+
+  --animate-glow-pulse: glow-pulse 6s ease-in-out infinite;
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-shimmer: shimmer 1.4s ease-in-out infinite;
+  --animate-fade-in-up: fade-in-up 800ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  --animate-fade-in-up-delay-1: fade-in-up 800ms cubic-bezier(0.23, 1, 0.32, 1) 100ms forwards;
+  --animate-fade-in-up-delay-2: fade-in-up 800ms cubic-bezier(0.23, 1, 0.32, 1) 200ms forwards;
+  --animate-fade-in-up-delay-3: fade-in-up 800ms cubic-bezier(0.23, 1, 0.32, 1) 300ms forwards;
+}
+
+@font-face {
+  font-family: 'Cursor Gothic';
+  src: url('/fonts/CursorGothic-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cursor Gothic';
+  src: url('/fonts/CursorGothic-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  background-color: #FAF6EE;
+  color: #0D0D0D;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Cursor Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+::selection {
+  background-color: #F2AC29;
+  color: #0D0D0D;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #FCFAF7; }
+::-webkit-scrollbar-thumb { background: #734E0A; border-radius: 3px; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes timeline-entry {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
