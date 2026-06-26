@@ -9,8 +9,8 @@ const sections = [
       "Le site togomediasawards.tg est édité par l'association Togo Médias Awards (TMA), régie par la loi togolaise relative aux associations.",
       'Raison sociale : Association Togo Médias Awards',
       'Siège social : Lomé, Quartier Administratif, République du Togo',
-      'Téléphone : +228 90 00 00 00',
-      'Email : contact@togomediasawards.tg',
+      'Téléphone : +228 92 00 96 17',
+      'Email : contact@togomediasawards.com',
       "Numéro d'enregistrement : [À insérer — Récépissé de déclaration]",
       'Objet social : Promouvoir l’excellence journalistique et l’innovation dans le secteur des médias au Togo.',
     ],
@@ -27,7 +27,7 @@ const sections = [
     content: [
       'Le site est hébergé par Vercel Inc. — 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis.',
       'Solutions techniques : Vercel Platform (Edge Network) — infrastructure cloud scalable, certifiée SOC 2.',
-      'En cas de dysfonctionnement technique, veuillez contacter notre support à contact@togomediasawards.tg.',
+      'En cas de dysfonctionnement technique, veuillez contacter notre support à contact@togomediasawards.com.',
     ],
   },
   {
@@ -69,7 +69,7 @@ const sections = [
       '- D’un droit à la limitation et à l’opposition du traitement ;',
       '- D’un droit à la portabilité de ses données ;',
       '- Du droit de retirer son consentement à tout moment.',
-      'Pour exercer ces droits, contactez-nous à : contact@togomediasawards.tg.',
+      'Pour exercer ces droits, contactez-nous à : contact@togomediasawards.com.',
       'Voir notre Politique de confidentialité pour plus de détails.',
     ],
   },

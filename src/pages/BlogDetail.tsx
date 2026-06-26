@@ -3,7 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { SEO } from '../components/SEO'
 import { Button } from '../components/ui/Button'
 import { getPostById, getRelatedPosts } from '../lib/blog-data'
+import { BlogBody } from '../components/BlogBody'
 import type { SanityPost } from '../types'
+import type { PortableTextBlock } from '@portabletext/react'
 
 function RelatedCard({ post, onClick }: { post: SanityPost; onClick: () => void }) {
   return (
@@ -104,16 +106,15 @@ export const BlogDetail: React.FC = () => {
           )}
 
           {/* ── Content ── */}
-          <div className="prose-custom max-w-none">
-            <p className="text-text-main leading-[1.8] mb-6 text-base md:text-lg">
-              {post.excerpt}
-            </p>
-            {(!post.body || post.body.length === 0) && (
-              <p className="text-text-muted leading-relaxed text-sm italic">
-                Le contenu complet de cet article sera bientôt disponible.
+          {post.body && post.body.length > 0 ? (
+            <BlogBody blocks={post.body as PortableTextBlock[]} />
+          ) : (
+            <div className="max-w-none">
+              <p className="text-text-main leading-[1.8] mb-6 text-base md:text-lg">
+                {post.excerpt}
               </p>
-            )}
-          </div>
+            </div>
+          )}
 
           {/* ── CTA ── */}
           <div className="mt-14 pt-10 border-t border-border-subtle">

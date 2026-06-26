@@ -13,8 +13,8 @@ export const SITE = {
   name: 'Togo Médias Awards 2026',
   short: 'T.M.A 2026',
   tagline: "Promouvoir l'excellence journalistique et l'innovation dans le secteur des médias au Togo depuis 2022.",
-  email: 'contact@togomediasawards.tg',
-  phone: '+228 90 00 00 00',
+  email: 'contact@togomediasawards.com',
+  phone: '+228 92 00 96 17',
   location: 'Lomé, Togo',
 }
 
@@ -202,7 +202,7 @@ export const CATEGORIES: Category[] = [
 ]
 
 export const ACTIVITIES: Activity[] = [
-  { title: 'Conférence de presse', desc: "Lancement officiel à Lomé.", date: 'Juin 2026' },
+  { title: 'Conférence de presse', desc: "Lancement officiel à l'hôtel Mirambo (Lomé).", date: '27 Juin 2026 à 14h' },
   { title: 'Conférence-débat nationale', desc: "Débats d'experts à Dapaong.", date: 'Juillet 2026' },
   { title: 'Campagne de sensibilisation', desc: 'Mobilisation sur les réseaux et médias.', date: 'Mai – Août 2026' },
   { title: 'Match de football', desc: 'Médias vs Société Civile à Lomé.', date: 'Septembre 2026' },
@@ -210,7 +210,7 @@ export const ACTIVITIES: Activity[] = [
 ]
 
 export const SCHEDULE = [
-  { activity: "Lancement officiel - conférence de presse", period: 'Juin 2026', time: '10h00', location: 'Lomé', image: 'https://picsum.photos/seed/sched-press/800/600' },
+  { activity: "Conférence de presse - lancement officiel", period: '27 Juin 2026', time: '14h00', location: "Hôtel Mirambo (Lomé)", image: 'https://picsum.photos/seed/sched-press/800/600' },
   { activity: 'Conférence-débat nationale', period: 'Juillet 2026', time: '09h00', location: 'Dapaong', image: 'https://picsum.photos/seed/sched-debate/800/600' },
   { activity: 'Campagne de sensibilisation', period: 'Mai - Août 2026', time: '-', location: 'Tout le Togo', image: 'https://picsum.photos/seed/sched-campaign/800/600' },
   { activity: 'Sélection des productions', period: 'Août - Septembre 2026', time: '-', location: 'Lomé', image: 'https://picsum.photos/seed/sched-selection/800/600' },
@@ -236,6 +236,6 @@ export const TARGETS = [
 
 export const CONTACT_INFOS: ContactInfo[] = [
   { label: 'Adresse', value: 'Lomé, Quartier Administratif, Togo', icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z', icon2: 'M15 11a3 3 0 11-6 0 3 3 0 016 0z' },
-  { label: 'Email', value: 'contact@togomediasawards.tg', icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
-  { label: 'Téléphone', value: '+228 90 00 00 00', icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z' },
+  { label: 'Email', value: 'contact@togomediasawards.com', icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
+  { label: 'Téléphone', value: '+228 92 00 96 17', icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z' },
 ]

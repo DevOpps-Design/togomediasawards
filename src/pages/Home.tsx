@@ -3,7 +3,7 @@ import { SEO } from '../components/SEO'
 import { Button } from '../components/ui/Button'
 
 const HERO_IMAGES = ['/assts/hero-1.webp', '/assts/hero-2.webp', '/assts/hero-3.webp']
-const PRESS_DATE = new Date('2026-07-15T10:00:00+00:00')
+const PRESS_DATE = new Date('2026-06-27T14:00:00+00:00')
 
 export const Home: React.FC = () => {
   const [mounted, setMounted] = useState(false)
@@ -123,8 +123,11 @@ export const Home: React.FC = () => {
                 mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
             >
-              <p className="text-white text-xs md:text-sm uppercase mb-4 font-semibold">
+              <p className="text-white/60 text-[10px] md:text-xs uppercase tracking-[0.2em] mb-1 font-semibold">
                 Conférence de presse
+              </p>
+              <p className="text-white/60 text-xs md:text-sm mb-4">
+                27 juin 2026 à 14h • Hôtel Mirambo, Lomé
               </p>
               <div className="flex items-center justify-center gap-4 md:gap-6">
                 {[

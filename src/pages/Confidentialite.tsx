@@ -7,7 +7,7 @@ const sections = [
     title: 'Qui sommes-nous ?',
     content: [
       "L'association Togo Médias Awards (TMA), dont le siège est à Lomé (Togo), est le responsable du traitement des données à caractère personnel collectées sur le site togomediasawards.tg.",
-      'Email du délégué à la protection des données : contact@togomediasawards.tg',
+      'Email du délégué à la protection des données : contact@togomediasawards.com',
       'La présente politique de confidentialité vous informe de la manière dont nous collectons, utilisons, partageons et protégeons vos données personnelles dans le cadre de votre utilisation du site et de nos services.',
     ],
   },
@@ -80,7 +80,7 @@ const sections = [
       "6. Droit d'opposition — Vous opposer au traitement de vos données pour des motifs légitimes.",
       "7. Droit de retirer votre consentement — À tout moment, sans remettre en cause la licéité du traitement antérieur.",
       '',
-      'Pour exercer ces droits, adressez votre demande par email à contact@togomediasawards.tg ou par courrier postal au siège de l’association. Nous nous engageons à répondre dans un délai maximum de 30 jours.',
+      'Pour exercer ces droits, adressez votre demande par email à contact@togomediasawards.com ou par courrier postal au siège de l’association. Nous nous engageons à répondre dans un délai maximum de 30 jours.',
       'En cas de réponse insatisfaisante, vous avez le droit d’introduire une réclamation auprès de l’Autorité de protection des données personnelles du Togo (APDP) ou de la CNIL (si vous êtes en France).',
     ],
   },
