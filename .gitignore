@@ -49,4 +49,5 @@ DESIGN.md
 
 # Temp / downloaded assets
 *.zip
+*.tmp
 public/assets/drive-download-*/

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { SEO } from '../components/SEO'
 import { Button } from '../components/ui/Button'
 
-const HERO_IMAGES = ['/assts/hero-1.JPG', '/assts/hero-2.JPG', '/assts/hero-3.JPG']
+const HERO_IMAGES = ['/assts/hero-1.webp', '/assts/hero-2.webp', '/assts/hero-3.webp']
 const PRESS_DATE = new Date('2026-07-15T10:00:00+00:00')
 
 export const Home: React.FC = () => {

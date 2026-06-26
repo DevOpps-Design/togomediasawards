@@ -73,7 +73,7 @@ export const About: React.FC = () => (
           {/* Photo */}
           <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-brand-primary/10 to-brand-accent/5 border border-border-subtle">
             <img
-              src="/assts/hero-2.JPG"
+              src="/assts/hero-2.webp"
               alt="Togo Médias Awards"
               className="w-full h-full object-cover"
             />
@@ -127,7 +127,7 @@ export const About: React.FC = () => (
           <div className="lg:sticky lg:top-36">
             <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-brand-primary/10 to-brand-accent/5 border border-border-subtle">
               <img
-                src="/assts/hero-2.JPG"
+                src="/assts/hero-2.webp"
                 alt="Cérémonie Togo Médias Awards"
                 className="w-full h-full object-cover"
               />

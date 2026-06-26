@@ -19,7 +19,7 @@ export const Header: React.FC = () => {
       <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none">
         <div className="mt-4 md:mt-6 pointer-events-auto flex items-center gap-6 bg-bg-main/75 backdrop-blur-2xl border border-border-subtle rounded-full px-2 py-1.5 max-w-[calc(100vw-2rem)] shadow-[0_8px_32px_rgba(13,13,13,0.06)]">
           <Link to="/" className="flex items-center pl-3 md:pl-4 shrink-0">
-            <img src="/brand/tma-logo.png" alt="TMA" className="h-8 md:h-9 w-auto" />
+            <img src="/brand/tma-logo.webp" alt="TMA" className="h-8 md:h-9 w-auto" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">

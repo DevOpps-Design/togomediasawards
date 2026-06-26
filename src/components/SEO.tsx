@@ -23,7 +23,7 @@ export const SEO: React.FC<SEOProps> = ({ title, description, canonical, ogImage
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content={ogImage || '/brand/tma-logo.png'} />
+      <meta property="og:image" content={ogImage || '/brand/tma-logo.webp'} />
       <meta property="og:locale" content="fr_FR" />
       <meta property="og:site_name" content={siteTitle} />
 

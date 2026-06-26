@@ -7,7 +7,7 @@ interface BannerProps {
   image?: string
 }
 
-export const Banner: React.FC<BannerProps> = ({ title, subtitle, highlight, image = '/assts/hero-1.JPG' }) => (
+export const Banner: React.FC<BannerProps> = ({ title, subtitle, highlight, image = '/assts/hero-1.webp' }) => (
   <section className="relative min-h-[40vh] md:min-h-[45vh] flex items-center px-6 pt-36 pb-16 md:pb-20 overflow-hidden">
     <div className="absolute inset-0">
       <img src={image} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover" />

@@ -16,7 +16,7 @@ export const Footer: React.FC = () => (
         {/* Brand */}
         <div className="md:col-span-4">
           <Link to="/" className="inline-block mb-5">
-            <img src="/brand/tma-logo.png" alt="TMA" className="h-9 md:h-10 w-auto" />
+            <img src="/brand/tma-logo.webp" alt="TMA" className="h-9 md:h-10 w-auto" />
           </Link>
           <p className="text-sm text-text-muted leading-relaxed max-w-xs">
             {SITE.tagline}
