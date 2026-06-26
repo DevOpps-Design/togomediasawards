@@ -1,6 +1,7 @@
 import { lazy } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
+import { Analytics } from '@vercel/analytics/react'
 import { Layout } from './components/layout/Layout'
 
 const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })))
@@ -17,6 +18,7 @@ export default function App() {
   return (
     <HelmetProvider>
       <Router>
+        <Analytics />
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
