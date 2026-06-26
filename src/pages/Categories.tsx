@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { SEO } from '../components/SEO'
 import { FadeSection } from '../components/ui/FadeSection'
 import { Banner } from '../components/ui/Banner'
@@ -6,7 +7,6 @@ import { Input } from '../components/ui/Input'
 import { Select } from '../components/ui/Select'
 import { Textarea } from '../components/ui/Textarea'
 import { Button } from '../components/ui/Button'
-import { SuccessState } from '../components/ui/SuccessState'
 import { CATEGORIES } from '../lib/constants'
 import { supabase } from '../lib/supabase'
 import type { Category, FormErrors } from '../types'
@@ -166,9 +166,9 @@ function StepBar({ current }: { current: number }) {
 }
 
 export const Categories: React.FC = () => {
+  const navigate = useNavigate()
   const [values, setValues] = useState<CandidatureForm>(INITIAL)
   const [errors, setErrors] = useState<FormErrors>({})
-  const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
 
@@ -241,7 +241,15 @@ export const Categories: React.FC = () => {
       })
       if (insertError) throw new Error(insertError.message)
 
-      setSubmitted(true)
+      navigate('/confirmation', {
+        state: {
+          name: `${values.prenom} ${values.nom}`.trim(),
+          media: values.media.trim() || undefined,
+          entityType: values.entityType,
+          fileUrl,
+          categorie: values.categorie,
+        }
+      })
     } catch (err) {
       setSubmitError(err instanceof Error ? err.message : 'Une erreur est survenue')
     } finally {
@@ -256,18 +264,6 @@ export const Categories: React.FC = () => {
     if (cat.type === 'organization') updateField('entityType', 'organization')
     else updateField('entityType', 'individual')
   }, [updateField])
-
-  if (submitted) {
-    return (
-      <>
-        <SEO title="Candidature envoyée" description="Merci pour votre candidature." />
-        <SuccessState
-          title="Candidature reçue"
-          message="Notre équipe examinera votre production et reviendra vers vous dans les plus brefs délais."
-        />
-      </>
-    )
-  }
 
   return (
     <>

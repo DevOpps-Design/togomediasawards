@@ -12,6 +12,7 @@ const Blog = lazy(() => import('./pages/Blog').then(m => ({ default: m.Blog })))
 const BlogDetail = lazy(() => import('./pages/BlogDetail').then(m => ({ default: m.BlogDetail })))
 const Contact = lazy(() => import('./pages/Contact').then(m => ({ default: m.Contact })))
 const MentionsLegales = lazy(() => import('./pages/MentionsLegales').then(m => ({ default: m.MentionsLegales })))
+const Confirmation = lazy(() => import('./pages/Confirmation').then(m => ({ default: m.Confirmation })))
 const Confidentialite = lazy(() => import('./pages/Confidentialite').then(m => ({ default: m.Confidentialite })))
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogDetail />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/confirmation" element={<Confirmation />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/confidentialite" element={<Confidentialite />} />
             <Route path="*" element={<Home />} />
