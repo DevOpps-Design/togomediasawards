@@ -5,8 +5,6 @@ import { FadeSection } from '../components/ui/FadeSection'
 import { getPosts, getFeaturedPost, getCategories } from '../lib/blog-data'
 import type { SanityPost, SanityCategory } from '../types'
 
-/* ------------------- COMPONENTS ------------------- */
-
 function SidebarCard({ post, onClick }: { post: SanityPost; onClick: () => void }) {
   return (
     <article onClick={onClick} className="flex gap-3 group cursor-pointer py-3 border-b border-border-subtle last:border-none">
@@ -50,54 +48,32 @@ function ArticleCard({ post, onClick }: { post: SanityPost; onClick: () => void 
   )
 }
 
-function SectionRow({ label, slug }: { label: string; slug: string }) {
-  const navigate = useNavigate()
-  const [posts, setPosts] = useState<SanityPost[]>([])
-
-  useEffect(() => {
-    getPosts().then(all => setPosts(all.filter(p => p.categorySlug === slug).slice(0, 4)))
-  }, [slug])
-
-  if (posts.length === 0) return null
-
-  return (
-    <div className="mb-14">
-      <div className="flex items-baseline justify-between mb-6 pb-2 border-b border-border-subtle">
-        <h2 className="text-sm font-black uppercase tracking-[0.12em] text-text-main">{label}</h2>
-        <button className="text-xs font-bold text-brand-accent hover:text-brand-primary transition-colors duration-200 flex items-center gap-1">
-          Voir tout
-          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </button>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {posts.map(post => (
-          <ArticleCard key={post._id} post={post} onClick={() => navigate(`/blog/${post._id}`)} />
-        ))}
-      </div>
-    </div>
-  )
-}
-
-/* ------------------- PAGE ------------------- */
+const PER_PAGE = 6
 
 export const Blog: React.FC = () => {
   const navigate = useNavigate()
   const [activeFilter, setActiveFilter] = useState<string | null>(null)
   const [featured, setFeatured] = useState<SanityPost | null>(null)
-  const [latest, setLatest] = useState<SanityPost[]>([])
+  const [allPosts, setAllPosts] = useState<SanityPost[]>([])
   const [categories, setCategories] = useState<SanityCategory[]>([])
+  const [page, setPage] = useState(1)
 
   useEffect(() => {
     getFeaturedPost().then(setFeatured)
-    getPosts().then(all => setLatest(all.slice(0, 5)))
+    getPosts().then(setAllPosts)
     getCategories().then(setCategories)
   }, [])
 
-  const visibleSections = activeFilter
-    ? categories.filter(c => c.slug === activeFilter)
-    : categories
+  const latest = allPosts.slice(0, 5)
+  const featuredId = featured?._id
+  const latestIds = new Set(latest.map(p => p._id))
+
+  const filtered = activeFilter
+    ? allPosts.filter(p => p.categorySlug === activeFilter)
+    : allPosts
+
+  const gridPosts = filtered.filter(p => p._id !== featuredId && !latestIds.has(p._id))
+  const visiblePosts = gridPosts.slice(0, page * PER_PAGE)
 
   return (
     <>
@@ -113,7 +89,7 @@ export const Blog: React.FC = () => {
           <FadeSection delay={40}>
             <div className="flex gap-0 flex-wrap mb-10 border-b border-border-subtle">
               <button
-                onClick={() => setActiveFilter(null)}
+                onClick={() => { setActiveFilter(null); setPage(1) }}
                 className={`px-5 py-2.5 text-sm font-semibold transition-colors duration-200 border-b-2 -mb-px ${
                   activeFilter === null
                     ? 'border-brand-primary text-brand-primary'
@@ -182,12 +158,33 @@ export const Blog: React.FC = () => {
             </FadeSection>
           )}
 
-          {/* ── CATEGORY SECTIONS ── */}
-          {visibleSections.map((section, si) => (
-            <FadeSection key={section.slug} delay={80 + si * 40}>
-              <SectionRow label={section.title} slug={section.slug} />
+          {/* ── ARTICLES GRID ── */}
+          {visiblePosts.length > 0 && (
+            <FadeSection delay={80}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+                {visiblePosts.map(post => (
+                  <ArticleCard key={post._id} post={post} onClick={() => navigate(`/blog/${post._id}`)} />
+                ))}
+              </div>
             </FadeSection>
-          ))}
+          )}
+
+          {/* ── PAGINATION ── */}
+          {gridPosts.length > page * PER_PAGE && (
+            <FadeSection delay={100}>
+              <div className="text-center">
+                <button
+                  onClick={() => setPage(p => p + 1)}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border-subtle bg-white text-sm font-bold text-text-main hover:bg-gray-50 hover:border-brand-accent/30 transition-all duration-200"
+                >
+                  Voir plus d'articles
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
+            </FadeSection>
+          )}
 
         </div>
       </div>

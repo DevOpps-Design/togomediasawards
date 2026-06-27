@@ -385,7 +385,7 @@ export const Categories: React.FC = () => {
                         <div className="flex gap-3">
                           {([
                             { value: 'individual', label: 'Journaliste indépendant', desc: 'Je postule en mon nom' },
-                            { value: 'organization', label: 'Au nom de mon média', desc: 'Je représente ma structure' },
+                            { value: 'organization', label: "Au nom d'un média", desc: 'Je représente ma structure' },
                           ] as const).map(opt => (
                             <button
                               key={opt.value}

@@ -50,9 +50,6 @@ export const Confirmation: React.FC = () => {
   const shareText = getShareText(data.name, isOrg ? data.media : undefined)
   const encodedText = encodeURIComponent(shareText)
   const encodedUrl = encodeURIComponent(SITE_URL)
-  const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`
-
-  const currentUrl = SITE_URL
 
   const [copied, setCopied] = React.useState(false)
   const handleCopyLink = () => {
