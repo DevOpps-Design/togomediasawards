@@ -191,9 +191,19 @@ export const Categories: React.FC = () => {
       if (!values.nom.trim()) e.nom = 'Requis'
       if (!values.prenom.trim()) e.prenom = 'Requis'
       if (!values.email.trim()) e.email = 'Requis'
+      if (!values.telephone.trim()) e.telephone = 'Requis'
+      if (!values.media.trim()) e.media = 'Requis'
     }
-    if (step === 2) { /* file is optional */ }
+    if (step === 2) {
+      const file = values.entityType === 'organization' ? values.logo : values.photo
+      if (!file) {
+        e.file = values.entityType === 'organization' ? 'Logo requis' : 'Photo requise'
+      } else if (file.size > 1.5 * 1024 * 1024) {
+        e.file = 'Le fichier ne doit pas dépasser 1,5 Mo'
+      }
+    }
     if (step === 3) {
+      if (!values.description.trim()) e.description = 'Requis'
       if (!values.accord) e.accord = 'Vous devez accepter'
     }
     setErrors(e)
@@ -374,9 +384,9 @@ export const Categories: React.FC = () => {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <Input label="Email" type="email" placeholder="vous@exemple.tg" value={values.email} onChange={e => updateField('email', e.target.value)} error={errors.email} />
-                      <Input label="Téléphone" type="tel" placeholder="+228 XX XX XX XX" value={values.telephone} onChange={e => updateField('telephone', e.target.value)} />
+                      <Input label="Téléphone" type="tel" placeholder="+228 XX XX XX XX" value={values.telephone} onChange={e => updateField('telephone', e.target.value)} error={errors.telephone} />
                     </div>
-                    <Input label={entityLabel} placeholder={selectedCat?.type === 'organization' ? 'Nom de votre structure' : 'Votre média ou site'} value={values.media} onChange={e => updateField('media', e.target.value)} />
+                    <Input label={entityLabel} placeholder={selectedCat?.type === 'organization' ? 'Nom de votre structure' : 'Votre média ou site'} value={values.media} onChange={e => updateField('media', e.target.value)} error={errors.media} />
 
                     {/* Entity type toggle — only if category is individual */}
                     {selectedCat?.type === 'individual' && (
@@ -458,10 +468,11 @@ export const Categories: React.FC = () => {
                             <span className="text-sm text-text-muted">
                               {values.entityType === 'organization' ? 'Déposez le logo ici' : 'Déposez votre photo ici'}
                             </span>
-                            <span className="text-[10px] text-text-dim">PNG, JPG, WebP</span>
+                            <span className="text-[10px] text-text-dim">PNG, JPG, WebP · Max 1,5 Mo</span>
                           </div>
                         )}
                       </div>
+                      {errors.file && <p className="text-brand-alert text-sm mt-1">{errors.file}</p>}
                     </div>
                   </div>
                 )}
@@ -474,6 +485,7 @@ export const Categories: React.FC = () => {
                       placeholder="Contexte et impact de votre travail..."
                       value={values.description}
                       onChange={e => updateField('description', e.target.value)}
+                      error={errors.description}
                     />
 
                     {/* Recap avant envoi */}
